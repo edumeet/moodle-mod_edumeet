@@ -1,0 +1,28 @@
+
+.knockplop_home {
+
+	background-image: url(/mod/knockplop/pix/bg.jpg);
+	background-repeat: no-repeat;
+	background-size: 85% auto;
+	background-position: left top;
+	width: 100%;
+	max-width: 720px;
+}
+
+.knockplop_home > div {
+	position: relative;
+	width: 100%;
+	max-height: 340px;
+	height: 30vw;
+	background: linear-gradient(95deg, rgba(255,255,255,0) 25%, rgba(255,255,255,1) 75%);
+	padding: 20px;
+	text-align: right;
+}
+
+.knockplop_home > div a  {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+
+}
+
