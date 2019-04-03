@@ -4,7 +4,7 @@ MultipartyMeeting WebRTC Moodle Plugin
 
 TODO Provide more detailed description here.
 
-Thx for the icon to: http://www.iconarchive.com/show/leather-icons-by-martynamru/camera-icon.html
+Thx for the icon to: https://www.shareicon.net/peace-shake-hands-peace-talk-unity-gestures-unite-agreement-659817
 
 ## License ##
 
