@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Display information about all the knockplop modules in the requested course.
+ * Display information about all the multipartymeeting modules in the requested course.
  *
- * @package     knockplop
- * @copyright   2017 Misi <bakfitty@gmail.com>
+ * @package     multipartymeeting
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -33,26 +33,26 @@ require_course_login($course);
 
 $coursecontext = context_course::instance($course->id);
 
-$event = \mod_knockplop\event\course_module_instance_list_viewed::create(array(
+$event = \mod_multipartymeeting\event\course_module_instance_list_viewed::create(array(
     'context' => $modulecontext
 ));
 $event->add_record_snapshot('course', $course);
 $event->trigger();
 
-$PAGE->set_url('/mod/knockplop/index.php', array('id' => $id));
+$PAGE->set_url('/mod/multipartymeeting/index.php', array('id' => $id));
 $PAGE->set_title(format_string($course->fullname));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($coursecontext);
 
 echo $OUTPUT->header();
 
-$modulenameplural = get_string('modulenameplural', 'knockplop');
+$modulenameplural = get_string('modulenameplural', 'multipartymeeting');
 echo $OUTPUT->heading($modulenameplural);
 
-$knockplops = get_all_instances_in_course('knockplop', $course);
+$multipartymeetings = get_all_instances_in_course('multipartymeeting', $course);
 
-if (empty($knockplops)) {
-    notice(get_string('nonewmodules', 'knockplop'), new moodle_url('/course/view.php', array('id' => $course->id)));
+if (empty($multipartymeetings)) {
+    notice(get_string('nonewmodules', 'multipartymeeting'), new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 
 $table = new html_table();
@@ -69,20 +69,20 @@ if ($course->format == 'weeks') {
     $table->align = array('left', 'left', 'left');
 }
 
-foreach ($knockplops as $knockplop) {
-    if (!$knockplop->visible) {
+foreach ($multipartymeetings as $multipartymeeting) {
+    if (!$multipartymeeting->visible) {
         $link = html_writer::link(
-            new moodle_url('/mod/knockplop/view.php', array('id' => $knockplop->coursemodule)),
-            format_string($knockplop->name, true),
+            new moodle_url('/mod/multipartymeeting/view.php', array('id' => $multipartymeeting->coursemodule)),
+            format_string($multipartymeeting->name, true),
             array('class' => 'dimmed'));
     } else {
         $link = html_writer::link(
-            new moodle_url('/mod/knockplop/view.php', array('id' => $knockplop->coursemodule)),
-            format_string($knockplop->name, true));
+            new moodle_url('/mod/multipartymeeting/view.php', array('id' => $multipartymeeting->coursemodule)),
+            format_string($multipartymeeting->name, true));
     }
 
     if ($course->format == 'weeks' or $course->format == 'topics') {
-        $table->data[] = array($knockplop->section, $link);
+        $table->data[] = array($multipartymeeting->section, $link);
     } else {
         $table->data[] = array($link);
     }

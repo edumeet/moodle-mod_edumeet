@@ -17,9 +17,9 @@
 /**
  * Code to be executed after the plugin's database scheme has been installed is defined here.
  *
- * @package     knockplop
+ * @package     multipartymeeting
  * @category    upgrade
- * @copyright   2017 Misi <bakfitty@gmail.com>
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Custom code to be run on installing the plugin.
  */
-function xmldb_knockplop_install() {
+function xmldb_multipartymeeting_install() {
 
     return true;
 }

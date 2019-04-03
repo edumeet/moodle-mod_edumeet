@@ -17,28 +17,28 @@
 /**
  * Plugin strings are defined here.
  *
- * @package     knockplop
+ * @package     multipartymeeting
  * @category    string
- * @copyright   2017 Misi <bakfitty@gmail.com>
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'KnockPlop WebRTC Meetingplace';
+$string['pluginname'] = 'multipartymeeting WebRTC Meetingplace';
 
-$string['modulename'] = 'KnockPlop';
-$string['modulenameplural'] = 'KnockPlops';
-$string['modulename_help'] = 'Use the KnockPlop WebRTC module to interact using audio and video.';
-$string['pluginadministration'] = 'KnockPlop Administration';
-$string['pluginname'] = 'Knockplop';
-$string['knockplopname'] = 'Room Name';
-$string['knockplopname_help'] = 'Name of the meeting Room';
+$string['modulename'] = 'multipartymeeting';
+$string['modulenameplural'] = 'multipartymeetings';
+$string['modulename_help'] = 'Use the multipartymeeting WebRTC module to interact using audio and video.';
+$string['pluginadministration'] = 'multipartymeeting Administration';
+$string['pluginname'] = 'multipartymeeting';
+$string['multipartymeetingname'] = 'Room Name';
+$string['multipartymeetingname_help'] = 'Name of the meeting Room';
 $string['room'] = 'Room ID';
 $string['room_help'] = 'ID of the meeting Room';
-$string['knockplopbaseurl'] = 'KnockPlop base URL:';
-$string['knockplopbaseurl_desc'] = 'KnockPlop location URL';
-$string['knockploproomlength'] = 'KnockPlop Room ID length:';
-$string['knockploproomlength_desc'] = 'Length of random ID that will be generated for a Room';
+$string['multipartymeetingbaseurl'] = 'multipartymeeting base URL:';
+$string['multipartymeetingbaseurl_desc'] = 'multipartymeeting location URL';
+$string['multipartymeetingroomlength'] = 'multipartymeeting Room ID length:';
+$string['multipartymeetingroomlength_desc'] = 'Length of random ID that will be generated for a Room';
 $string['join_room'] = 'Join to the Meeting';
 $string['pageredirect'] = 'Join Meeting by page redirect';

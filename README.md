@@ -1,6 +1,6 @@
-# KonckPlop WebRTC #
+# MultipartyMeeting WebRTC #
 
-KonckPlop WebRTC Moodle Plugin
+MultipartyMeeting WebRTC Moodle Plugin
 
 TODO Provide more detailed description here.
 
@@ -8,7 +8,7 @@ Thx for the icon to: http://www.iconarchive.com/show/leather-icons-by-martynamru
 
 ## License ##
 
-2017 Misi <bakfitty@gmail.com>
+2019 Mészáros Mihály <misi@majd.eu>
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

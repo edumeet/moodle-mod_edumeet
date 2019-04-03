@@ -17,9 +17,9 @@
 /**
  * Code that is executed before the tables and data are dropped during the plugin uninstallation.
  *
- * @package     knockplop
+ * @package     multipartymeeting
  * @category    upgrade
- * @copyright   2017 Misi <bakfitty@gmail.com>
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Custom uninstallation procedure.
  */
-function xmldb_knockplop_uninstall() {
+function xmldb_multipartymeeting_uninstall() {
 
     return true;
 }

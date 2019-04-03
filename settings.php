@@ -17,9 +17,9 @@
 /**
  * Plugin administration pages are defined here.
  *
- * @package     knockplop
+ * @package     multipartymeeting
  * @category    admin
- * @copyright   2017 Misi <bakfitty@gmail.com>
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,10 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 if ($ADMIN->fulltree) {
    // TODO: Define the plugin settings page.
    // https://docs.moodle.org/dev/Admin_settings
-   $settings->add(new admin_setting_configtext('knockplop_baseurl',
-	get_string('knockplopbaseurl', 'knockplop'),
-	get_string('knockplopbaseurl_desc', 'knockplop'), 'https://lutra.lab.vvc.niif.hu'));
-   $settings->add(new admin_setting_configtext('knockplop_roomlength',
-	get_string('knockploproomlength', 'knockplop'),
-	get_string('knockploproomlength_desc', 'knockplop'), 8));
+   $settings->add(new admin_setting_configtext('multipartymeeting_baseurl',
+	get_string('multipartymeetingbaseurl', 'multipartymeeting'),
+	get_string('multipartymeetingbaseurl_desc', 'multipartymeeting'), 'https://lutra.lab.vvc.niif.hu'));
+   $settings->add(new admin_setting_configtext('multipartymeeting_roomlength',
+	get_string('multipartymeetingroomlength', 'multipartymeeting'),
+	get_string('multipartymeetingroomlength_desc', 'multipartymeeting'), 8));
 }

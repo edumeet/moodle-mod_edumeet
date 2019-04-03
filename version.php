@@ -17,14 +17,14 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     knockplop
- * @copyright   2017 Misi <bakfitty@gmail.com>
+ * @package     multipartymeeting
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_knockplop';
+$plugin->component = 'mod_multipartymeeting';
 $plugin->release = '1.0.1';
 $plugin->version = 2018031001;
 $plugin->requires = 2015111600;

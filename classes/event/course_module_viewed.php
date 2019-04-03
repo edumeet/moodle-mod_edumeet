@@ -15,19 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Display information about all the knockplop modules in the requested course.
+ * Display information about all the multipartymeeting modules in the requested course.
  *
- * @package     knockplop
- * @copyright   2017 Misi <bakfitty@gmail.com>
+ * @package     multipartymeeting
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_knockplop\event;
+namespace mod_multipartymeeting\event;
 defined('MOODLE_INTERNAL') || die();
 
 class course_module_viewed extends \core\event\course_module_viewed {
     protected function init() {
-        $this->data['objecttable'] = 'knockplop';
+        $this->data['objecttable'] = 'multipartymeeting';
         parent::init();
     }
     // You might need to override get_url() and get_legacy_log_data() if view mode needs to be stored as well.

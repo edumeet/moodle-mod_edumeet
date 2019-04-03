@@ -1,7 +1,7 @@
 
-.knockplop_home {
+.multipartymeeting_home {
 
-	background-image: url(/mod/knockplop/pix/bg.jpg);
+	background-image: url(/mod/multipartymeeting/pix/bg.jpg);
 	background-repeat: no-repeat;
 	background-size: 85% auto;
 	background-position: left top;
@@ -9,7 +9,7 @@
 	max-width: 720px;
 }
 
-.knockplop_home > div {
+.multipartymeeting_home > div {
 	position: relative;
 	width: 100%;
 	max-height: 340px;
@@ -19,7 +19,7 @@
 	text-align: right;
 }
 
-.knockplop_home > div a  {
+.multipartymeeting_home > div a  {
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
