@@ -30,7 +30,7 @@ if ($ADMIN->fulltree) {
    // https://docs.moodle.org/dev/Admin_settings
    $settings->add(new admin_setting_configtext('multipartymeeting_baseurl',
 	get_string('multipartymeetingbaseurl', 'multipartymeeting'),
-	get_string('multipartymeetingbaseurl_desc', 'multipartymeeting'), 'https://lutra.lab.vvc.niif.hu'));
+	get_string('multipartymeetingbaseurl_desc', 'multipartymeeting'), 'https://letsmeet.no'));
    $settings->add(new admin_setting_configtext('multipartymeeting_roomlength',
 	get_string('multipartymeetingroomlength', 'multipartymeeting'),
 	get_string('multipartymeetingroomlength_desc', 'multipartymeeting'), 8));
