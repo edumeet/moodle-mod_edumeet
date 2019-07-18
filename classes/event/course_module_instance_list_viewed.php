@@ -15,17 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ * The mod_multipartymeeting instance list viewed event.
  *
  * @package     multipartymeeting
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace mod_multipartymeeting\event;
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_multipartymeeting';
-$plugin->release = '1.0.1';
-$plugin->version = 2019071801;
-$plugin->requires = 2015111600;
-$plugin->maturity = MATURITY_STABLE;
+/**
+ * The mod_multipartymeeting instance list viewed event class.
+ *
+ * @package     multipartymeeting
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {
+}
+

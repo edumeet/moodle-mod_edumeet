@@ -22,71 +22,89 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require(__DIR__.'/../../config.php');
+require('../../config.php');
 
-require_once(__DIR__.'/lib.php');
+$id = required_param('id', PARAM_INT); // course id
 
-$id = required_param('id', PARAM_INT);
+$course = $DB->get_record('course', array('id'=>$id), '*', MUST_EXIST);
 
-$course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
-require_course_login($course);
+require_course_login($course, true);
+$PAGE->set_pagelayout('incourse');
 
-$coursecontext = context_course::instance($course->id);
-
-$event = \mod_multipartymeeting\event\course_module_instance_list_viewed::create(array(
-    'context' => $modulecontext
-));
+$params = array(
+    'context' => context_course::instance($course->id)
+);
+$event = \mod_multipartymeeting\event\course_module_instance_list_viewed::create($params);
 $event->add_record_snapshot('course', $course);
 $event->trigger();
 
-$PAGE->set_url('/mod/multipartymeeting/index.php', array('id' => $id));
-$PAGE->set_title(format_string($course->fullname));
-$PAGE->set_heading(format_string($course->fullname));
-$PAGE->set_context($coursecontext);
+$strmultipartymeeting       = get_string('modulename', 'multipartymeeting');
+$strmultipartymeetings      = get_string('modulenameplural', 'multipartymeeting');
+$strname         = get_string('name');
+$strintro        = get_string('moduleintro');
+$strlastmodified = get_string('lastmodified');
 
+$PAGE->set_url('/mod/multipartymeeting/index.php', array('id' => $course->id));
+$PAGE->set_title($course->shortname.': '.$strmultipartymeetings);
+$PAGE->set_heading($course->fullname);
+$PAGE->navbar->add($strmultipartymeetings);
 echo $OUTPUT->header();
+echo $OUTPUT->heading($strmultipartymeetings);
 
-$modulenameplural = get_string('modulenameplural', 'multipartymeeting');
-echo $OUTPUT->heading($modulenameplural);
-
-$multipartymeetings = get_all_instances_in_course('multipartymeeting', $course);
-
-if (empty($multipartymeetings)) {
-    notice(get_string('nonewmodules', 'multipartymeeting'), new moodle_url('/course/view.php', array('id' => $course->id)));
+if (!$multipartymeetings = get_all_instances_in_course('multipartymeeting', $course)) {
+    notice(get_string('thereareno', 'moodle', $strmultipartymeetings), "$CFG->wwwroot/course/view.php?id=$course->id");
+    exit;
 }
+
+$usesections = course_format_uses_sections($course->format);
 
 $table = new html_table();
 $table->attributes['class'] = 'generaltable mod_index';
 
-if ($course->format == 'weeks') {
-    $table->head  = array(get_string('week'), get_string('name'));
-    $table->align = array('center', 'left');
-} else if ($course->format == 'topics') {
-    $table->head  = array(get_string('topic'), get_string('name'));
-    $table->align = array('center', 'left', 'left', 'left');
+if ($usesections) {
+    $strsectionname = get_string('sectionname', 'format_'.$course->format);
+    $table->head  = array ($strsectionname, $strname, $strintro);
+    $table->align = array ('center', 'left', 'left');
 } else {
-    $table->head  = array(get_string('name'));
-    $table->align = array('left', 'left', 'left');
+    $table->head  = array ($strlastmodified, $strname, $strintro);
+    $table->align = array ('left', 'left', 'left');
 }
 
+$modinfo = get_fast_modinfo($course);
+$currentsection = '';
+
+
 foreach ($multipartymeetings as $multipartymeeting) {
-    if (!$multipartymeeting->visible) {
-        $link = html_writer::link(
-            new moodle_url('/mod/multipartymeeting/view.php', array('id' => $multipartymeeting->coursemodule)),
-            format_string($multipartymeeting->name, true),
-            array('class' => 'dimmed'));
+    $cm = $modinfo->cms[$multipartymeeting->coursemodule];
+    if ($usesections) {
+        $printsection = '';
+        if ($multipartymeeting->section !== $currentsection) {
+            if ($multipartymeeting->section) {
+                $printsection = get_section_name($course, $multipartymeeting->section);
+            }
+            if ($currentsection !== '') {
+                $table->data[] = 'hr';
+            }
+            $currentsection = $multipartymeeting->section;
+        }
     } else {
-        $link = html_writer::link(
-            new moodle_url('/mod/multipartymeeting/view.php', array('id' => $multipartymeeting->coursemodule)),
-            format_string($multipartymeeting->name, true));
+        $printsection = '<span class="smallinfo">'.userdate($multipartymeeting->timemodified)."</span>";
     }
 
-    if ($course->format == 'weeks' or $course->format == 'topics') {
-        $table->data[] = array($multipartymeeting->section, $link);
-    } else {
-        $table->data[] = array($link);
+    $extra = empty($cm->extra) ? '' : $cm->extra;
+    $icon = '';
+    if (!empty($cm->icon)) {
+        // each multipartymeeting has an icon in 2.0
+        $icon = $OUTPUT->pix_icon($cm->icon, get_string('modulename', $cm->modname)) . ' ';
     }
+
+    $class = $multipartymeeting->visible ? '' : 'class="dimmed"'; // hidden modules are dimmed
+    $table->data[] = array (
+        $printsection,
+        "<a $class $extra href=\"view.php?id=$cm->id\">".$icon.format_string($multipartymeeting->name)."</a>",
+        format_module_intro('multipartymeeting', $multipartymeeting, $cm->id));
 }
 
 echo html_writer::table($table);
+
 echo $OUTPUT->footer();

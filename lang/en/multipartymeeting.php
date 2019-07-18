@@ -27,18 +27,18 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'multipartymeeting WebRTC Meetingplace';
 
-$string['modulename'] = 'multipartymeeting';
-$string['modulenameplural'] = 'multipartymeetings';
+$string['modulename'] = 'Multipartymeeting';
+$string['modulenameplural'] = 'Multipartymeetings';
 $string['modulename_help'] = 'Use the multipartymeeting WebRTC module to interact using audio and video.';
-$string['pluginadministration'] = 'multipartymeeting Administration';
-$string['pluginname'] = 'multipartymeeting';
+$string['pluginadministration'] = 'Multipartymeeting Administration';
+$string['pluginname'] = 'Multipartymeeting';
 $string['multipartymeetingname'] = 'Room Name';
 $string['multipartymeetingname_help'] = 'Name of the meeting Room';
 $string['room'] = 'Room ID';
 $string['room_help'] = 'ID of the meeting Room';
-$string['multipartymeetingbaseurl'] = 'multipartymeeting base URL:';
-$string['multipartymeetingbaseurl_desc'] = 'multipartymeeting location URL';
-$string['multipartymeetingroomlength'] = 'multipartymeeting Room ID length:';
+$string['multipartymeetingbaseurl'] = 'Multipartymeeting base URL:';
+$string['multipartymeetingbaseurl_desc'] = 'Multipartymeeting location URL';
+$string['multipartymeetingroomlength'] = 'Multipartymeeting Room ID length:';
 $string['multipartymeetingroomlength_desc'] = 'Length of random ID that will be generated for a Room';
 $string['join_room'] = 'Join to the Meeting';
 $string['pageredirect'] = 'Join Meeting by page redirect';

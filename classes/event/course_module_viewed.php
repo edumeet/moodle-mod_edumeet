@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Display information about all the multipartymeeting modules in the requested course.
+ * The mod_multipartymeeting course module viewed event.
  *
  * @package     multipartymeeting
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
@@ -23,12 +23,30 @@
  */
 
 namespace mod_multipartymeeting\event;
+
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * The mod_multipartymeeting course module viewed event class.
+ *
+ * @package     multipartymeeting
+ * @copyright   2019 Mészáros Mihály <misi@majd.eu>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class course_module_viewed extends \core\event\course_module_viewed {
+
+    /**
+     * Init method.
+     *
+     * @return void
+     */
     protected function init() {
         $this->data['objecttable'] = 'multipartymeeting';
-        parent::init();
+        $this->data['crud'] = 'r';
+        $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
     }
-    // You might need to override get_url() and get_legacy_log_data() if view mode needs to be stored as well.
+
+    public static function get_objectid_mapping() {
+        return array('db' => 'multipartymeeting', 'restore' => 'multipartymeeting');
+    }
 }
