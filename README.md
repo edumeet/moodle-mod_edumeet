@@ -1,6 +1,6 @@
-# MultipartyMeeting WebRTC #
+# eduMeet WebRTC #
 
-MultipartyMeeting WebRTC Moodle Plugin
+eduMeet WebRTC Moodle Plugin
 
 TODO Provide more detailed description here.
 
