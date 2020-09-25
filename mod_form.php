@@ -72,7 +72,7 @@ class mod_multipartymeeting_mod_form extends moodleform_mod {
         //$mform->addElement('header', 'multipartymeetingfieldset', get_string('multipartymeetingfieldset', 'multipartymeeting'));
 
         $mform->addElement('text', 'room', get_string('room', 'multipartymeeting'), array('size' => '64'));
-        $mform->setDefault('room', substr(base64_encode(sha1(mt_rand())), 0, $CFG->multipartymeeting_roomlength));
+        $mform->setDefault('room', substr(base64_encode(sha1(mt_rand())), 0, get_config('multipartymeeting')->roomlength));
         $mform->setType('room', PARAM_TEXT);
         $mform->addHelpButton('room', 'room', 'multipartymeeting');
 

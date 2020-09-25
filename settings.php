@@ -28,10 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 if ($ADMIN->fulltree) {
    // TODO: Define the plugin settings page.
    // https://docs.moodle.org/dev/Admin_settings
-   $settings->add(new admin_setting_configtext('multipartymeeting_baseurl',
+   $settings->add(new admin_setting_configtext('multipartymeeting/baseurl',
 	get_string('multipartymeetingbaseurl', 'multipartymeeting'),
 	get_string('multipartymeetingbaseurl_desc', 'multipartymeeting'), 'https://letsmeet.no'));
-   $settings->add(new admin_setting_configtext('multipartymeeting_roomlength',
+
+   $settings->add(new admin_setting_configtext('multipartymeeting/roomlength',
 	get_string('multipartymeetingroomlength', 'multipartymeeting'),
 	get_string('multipartymeetingroomlength_desc', 'multipartymeeting'), 8));
 }

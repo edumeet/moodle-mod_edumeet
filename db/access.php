@@ -29,7 +29,6 @@ $capabilities = array(
 
     'mod/multipartymeeting:addinstance' => array(
         'riskbitmask' => RISK_XSS,
-
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -38,4 +37,15 @@ $capabilities = array(
         ),
         'clonepermissionsfrom' => 'moodle/course:manageactivities'
     ),
+    'mod/multipartymeeting:view' => array(
+	'riskbitmask' => RISK_PERSONAL,
+	'captype' => 'read',
+	'contextlevel' => CONTEXT_COURSE,
+	'archetypes' => array(
+    	    'student' => CAP_ALLOW,
+    	    'teacher' => CAP_ALLOW,
+    	    'editingteacher' => CAP_ALLOW,
+    	    'manager' => CAP_ALLOW
+	)
+    )
 );

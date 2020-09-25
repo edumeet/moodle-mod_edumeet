@@ -46,6 +46,7 @@ if ($id) {
 require_login($course, true, $cm);
 
 $modulecontext = context_module::instance($cm->id);
+require_capability('mod/multipartymeeting:view', $modulecontext);
 
 $event = \mod_multipartymeeting\event\course_module_viewed::create(array(
     'objectid' => $moduleinstance->id,
@@ -61,8 +62,7 @@ $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($modulecontext);
 
 echo $OUTPUT->header();
-
-$url = $CFG->multipartymeeting_baseurl."/".$moduleinstance->room;
+$url = get_config('multipartymeeting')->baseurl."/".$moduleinstance->room;
 
 if ($moduleinstance->pageredirect){
 	redirect($url);
