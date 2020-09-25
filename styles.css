@@ -1,7 +1,6 @@
 
 .multipartymeeting_home {
-
-	background-image: url(/mod/multipartymeeting/pix/bg.jpg);
+	background-image: url(./../../../../mod/multipartymeeting/pix/bg.jpg);
 	background-repeat: no-repeat;
 	background-size: 85% auto;
 	background-position: left top;
