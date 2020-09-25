@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_multipartymeeting';
-$plugin->release = '1.0.1';
+$plugin->release = '1.0.2';
 $plugin->version = 2019071801;
 $plugin->requires = 2015111600;
 $plugin->maturity = MATURITY_STABLE;
