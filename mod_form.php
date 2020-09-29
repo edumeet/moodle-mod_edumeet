@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot.'/course/moodleform_mod.php');
+require_once($CFG->dirroot . '/course/moodleform_mod.php');
 
 /**
  * Module instance settings form.
@@ -33,12 +33,14 @@ require_once($CFG->dirroot.'/course/moodleform_mod.php');
  * @copyright  2019 Mészáros Mihály <misi@majd.eu>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_edumeet_mod_form extends moodleform_mod {
+class mod_edumeet_mod_form extends moodleform_mod
+{
 
     /**
      * Defines forms elements
      */
-    public function definition() {
+    public function definition()
+    {
         global $CFG;
 
         $mform = $this->_form;
@@ -68,8 +70,8 @@ class mod_edumeet_mod_form extends moodleform_mod {
 
         // Adding the rest of edumeet settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
-        //$mform->addElement('static', 'label1', 'edumeetsettings', get_string('edumeetsettings', 'edumeet'));
-        //$mform->addElement('header', 'edumeetfieldset', get_string('edumeetfieldset', 'edumeet'));
+        // $mform->addElement('static', 'label1', 'edumeetsettings', get_string('edumeetsettings', 'edumeet'));
+        // $mform->addElement('header', 'edumeetfieldset', get_string('edumeetfieldset', 'edumeet'));
 
         $mform->addElement('text', 'room', get_string('room', 'edumeet'), array('size' => '64'));
         $mform->setDefault('room', substr(base64_encode(sha1(mt_rand())), 0, get_config('edumeet')->roomlength));
@@ -77,7 +79,7 @@ class mod_edumeet_mod_form extends moodleform_mod {
         $mform->addHelpButton('room', 'room', 'edumeet');
 
         $mform->addElement('advcheckbox', 'pageredirect', get_string('pageredirect', 'edumeet'));
-        //$mform->setDefault('pageredirect', 1);
+        // $mform->setDefault('pageredirect', 1);
         $mform->setType('pageredirect', PARAM_BOOL);
 
         // Add standard elements.

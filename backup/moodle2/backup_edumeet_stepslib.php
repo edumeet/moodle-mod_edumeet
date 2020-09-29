@@ -42,7 +42,7 @@ class backup_edumeet_activity_structure_step extends backup_activity_structure_s
      */
     protected function define_structure() {
         // Are we including userinfo?
-        $userinfo = $this->get_setting_value('userinfo');
+        // $userinfo = $this->get_setting_value('userinfo');
 
         // Define the root element describing the edumeet instance.
         $edumeet = new backup_nested_element('edumeet', array('id'), array(
