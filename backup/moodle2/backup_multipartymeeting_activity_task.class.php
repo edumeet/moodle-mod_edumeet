@@ -1,5 +1,5 @@
 <?php
-// This file is part of the multipartymeeting plugin for Moodle - http://moodle.org/
+// This file is part of the edumeet plugin for Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines backup_multipartymeeting_activity_task class
+ * Defines backup_edumeet_activity_task class
  *
- * @package   mod_multipartymeeting
+ * @package   mod_edumeet
  * @category  backup
  * @copyright 2020 Rémai Gábor.
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -25,18 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot . '/mod/multipartymeeting/backup/moodle2/backup_multipartymeeting_stepslib.php');
+require_once($CFG->dirroot . '/mod/edumeet/backup/moodle2/backup_edumeet_stepslib.php');
 
 
 /**
- * Provides the steps to perform one complete backup of the multipartymeeting instance
+ * Provides the steps to perform one complete backup of the edumeet instance
  *
- * @package    mod_multipartymeeting
+ * @package    mod_edumeet
  * @category   backup
  * @copyright  2020 Rémai Gábor.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class backup_multipartymeeting_activity_task extends backup_activity_task {
+class backup_edumeet_activity_task extends backup_activity_task {
 
     /**
      * No specific settings for this activity
@@ -45,10 +45,10 @@ class backup_multipartymeeting_activity_task extends backup_activity_task {
     }
 
     /**
-     * Defines a backup step to store the instance data in the multipartymeeting.xml file
+     * Defines a backup step to store the instance data in the edumeet.xml file
      */
     protected function define_my_steps() {
-        $this->add_step(new backup_multipartymeeting_activity_structure_step('multipartymeeting_structure', 'multipartymeeting.xml'));
+        $this->add_step(new backup_edumeet_activity_structure_step('edumeet_structure', 'edumeet.xml'));
     }
 
     /**
@@ -62,13 +62,13 @@ class backup_multipartymeeting_activity_task extends backup_activity_task {
 
         $base = preg_quote($CFG->wwwroot, '/');
 
-        // Link to the list of multipartymeetings.
-        $search = '/('.$base.'\/mod\/multipartymeeting\/index.php\?id\=)([0-9]+)/';
-        $content = preg_replace($search, '$@MULTIPARTYMEETINGINDEX*$2@$', $content);
+        // Link to the list of edumeets.
+        $search = '/('.$base.'\/mod\/edumeet\/index.php\?id\=)([0-9]+)/';
+        $content = preg_replace($search, '$@EDUMEETINDEX*$2@$', $content);
 
-        // Link to multipartymeeting view by moduleid.
-        $search = '/('.$base.'\/mod\/multipartymeeting\/view.php\?id\=)([0-9]+)/';
-        $content = preg_replace($search, '$@MULTIPARTYMEETINGVIEWBYID*$2@$', $content);
+        // Link to edumeet view by moduleid.
+        $search = '/('.$base.'\/mod\/edumeet\/view.php\?id\=)([0-9]+)/';
+        $content = preg_replace($search, '$@EDUMEETVIEWBYID*$2@$', $content);
 
         return $content;
     }

@@ -1,5 +1,5 @@
 <?php
-// This file is part of the multipartymeeting plugin for Moodle - http://moodle.org/
+// This file is part of the edumeet plugin for Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 /**
  * Provides the restore activity task class
  *
- * @package    mod_multipartymeeting
+ * @package    mod_edumeet
  * @category   backup
  * @copyright  2020 Rémai Gábor.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/mod/multipartymeeting/backup/moodle2/restore_multipartymeeting_stepslib.php');
+require_once($CFG->dirroot . '/mod/edumeet/backup/moodle2/restore_edumeet_stepslib.php');
 
-class restore_multipartymeeting_activity_task extends restore_activity_task {
+class restore_edumeet_activity_task extends restore_activity_task {
 
     protected function define_my_settings() {
         // No particular settings for this activity.
@@ -38,7 +38,7 @@ class restore_multipartymeeting_activity_task extends restore_activity_task {
      */
     protected function define_my_steps() {
         // We have just one structure step here.
-        $this->add_step(new restore_multipartymeeting_activity_structure_step('multipartymeeting_structure', 'multipartymeeting.xml'));
+        $this->add_step(new restore_edumeet_activity_structure_step('edumeet_structure', 'edumeet.xml'));
     }
 
 
@@ -49,7 +49,7 @@ class restore_multipartymeeting_activity_task extends restore_activity_task {
     static public function define_decode_contents() {
         $contents = array();
 
-        $contents[] = new restore_decode_content('multipartymeeting', array('intro'), 'multipartymeeting');
+        $contents[] = new restore_decode_content('edumeet', array('intro'), 'edumeet');
 
         return $contents;
     }
@@ -65,8 +65,8 @@ class restore_multipartymeeting_activity_task extends restore_activity_task {
     static public function define_decode_rules() {
         $rules = array();
 
-        $rules[] = new restore_decode_rule('MULTIPARTYMEETINGVIEWBYID', '/mod/multipartymeeting/view.php?id=$1', 'course_module');
-        $rules[] = new restore_decode_rule('MULTIPARTYMEETINGINDEX', '/mod/multipartymeeting/index.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('EDUMEETVIEWBYID', '/mod/edumeet/view.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('EDUMEETINDEX', '/mod/edumeet/index.php?id=$1', 'course_module');
 
         return $rules;
 
@@ -75,15 +75,15 @@ class restore_multipartymeeting_activity_task extends restore_activity_task {
     /**
      * Define the restore log rules that will be applied
      * by the {restore_logs_processor} when restoring
-     * multipartymeeting logs. It must return one array
+     * edumeet logs. It must return one array
      * of {restore_log_rule} objects
      */
     static public function define_restore_log_rules() {
         $rules = array();
 
-        $rules[] = new restore_log_rule('multipartymeeting', 'add', 'view.php?id={course_module}', '{multipartymeeting}');
-        $rules[] = new restore_log_rule('multipartymeeting', 'update', 'view.php?id={course_module}', '{multipartymeeting}');
-        $rules[] = new restore_log_rule('multipartymeeting', 'view', 'view.php?id={course_module}', '{multipartymeeting}');
+        $rules[] = new restore_log_rule('edumeet', 'add', 'view.php?id={course_module}', '{edumeet}');
+        $rules[] = new restore_log_rule('edumeet', 'update', 'view.php?id={course_module}', '{edumeet}');
+        $rules[] = new restore_log_rule('edumeet', 'view', 'view.php?id={course_module}', '{edumeet}');
 
         return $rules;
     }

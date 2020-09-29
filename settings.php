@@ -17,7 +17,7 @@
 /**
  * Plugin administration pages are defined here.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @category    admin
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,11 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 if ($ADMIN->fulltree) {
    // TODO: Define the plugin settings page.
    // https://docs.moodle.org/dev/Admin_settings
-   $settings->add(new admin_setting_configtext('multipartymeeting/baseurl',
-	get_string('multipartymeetingbaseurl', 'multipartymeeting'),
-	get_string('multipartymeetingbaseurl_desc', 'multipartymeeting'), 'https://letsmeet.no'));
+   $settings->add(new admin_setting_configtext('edumeet/baseurl',
+	get_string('edumeetbaseurl', 'edumeet'),
+	get_string('edumeetbaseurl_desc', 'edumeet'), 'https://letsmeet.no'));
 
-   $settings->add(new admin_setting_configtext('multipartymeeting/roomlength',
-	get_string('multipartymeetingroomlength', 'multipartymeeting'),
-	get_string('multipartymeetingroomlength_desc', 'multipartymeeting'), 8));
+   $settings->add(new admin_setting_configtext('edumeet/roomlength',
+	get_string('edumeetroomlength', 'edumeet'),
+	get_string('edumeetroomlength_desc', 'edumeet'), 8));
 }

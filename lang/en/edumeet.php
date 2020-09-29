@@ -17,7 +17,7 @@
 /**
  * Plugin strings are defined here.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @category    string
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -25,20 +25,20 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'multipartymeeting WebRTC Meetingplace';
+$string['pluginname'] = 'edumeet WebRTC Meetingplace';
 
-$string['modulename'] = 'Multipartymeeting';
-$string['modulenameplural'] = 'Multipartymeetings';
-$string['modulename_help'] = 'Use the multipartymeeting WebRTC module to interact using audio and video.';
-$string['pluginadministration'] = 'Multipartymeeting Administration';
-$string['pluginname'] = 'Multipartymeeting';
-$string['multipartymeetingname'] = 'Room name';
-$string['multipartymeetingname_help'] = 'Name of the meeting Room';
+$string['modulename'] = 'Edumeet';
+$string['modulenameplural'] = 'Edumeet';
+$string['modulename_help'] = 'Use the edumeet WebRTC module to interact using audio and video.';
+$string['pluginadministration'] = 'Edumeet Administration';
+$string['pluginname'] = 'Edumeet';
+$string['edumeetname'] = 'Room Name';
+$string['edumeetname_help'] = 'Name of the meeting Room';
 $string['room'] = 'Room ID';
 $string['room_help'] = 'ID of the meeting Room';
-$string['multipartymeetingbaseurl'] = 'Multipartymeeting base URL:';
-$string['multipartymeetingbaseurl_desc'] = 'Multipartymeeting location URL';
-$string['multipartymeetingroomlength'] = 'Multipartymeeting Room ID length:';
-$string['multipartymeetingroomlength_desc'] = 'Length of random ID that will be generated for a Room';
+$string['edumeetbaseurl'] = 'Edumeet base URL:';
+$string['edumeetbaseurl_desc'] = 'Edumeet location URL';
+$string['edumeetroomlength'] = 'Edumeet Room ID length:';
+$string['edumeetroomlength_desc'] = 'Length of random ID that will be generated for a Room';
 $string['join_room'] = 'Join to the Meeting';
 $string['pageredirect'] = 'Join Meeting by page redirect';

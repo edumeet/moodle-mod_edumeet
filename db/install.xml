@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/multipartymeeting/db" VERSION="20200910" COMMENT="XMLDB file for Moodle mod/multipartymeeting and mod/edumeet"
+<XMLDB PATH="mod/edumeet/db" VERSION="20200910" COMMENT="XMLDB file for Moodle mod/multipartymeeting and mod/edumeet"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="multipartymeeting" COMMENT="multipartymeeting WebRTC plugin">
+    <TABLE NAME="edumeet" COMMENT="edumeet WebRTC plugin">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Course webrtc activity belongs to"/>
         <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="name field for moodle instances"/>
         <FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="General introduction of the webrtc activity"/>
         <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Format of the intro field (MOODLE, HTML, MARKDOWN...)"/>
-        <FIELD NAME="room" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="room id field for multipartymeeting"/>
+        <FIELD NAME="room" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="room id field for edumeet"/>
         <FIELD NAME="pageredirect" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="page redirect"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>

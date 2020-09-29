@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The main multipartymeeting configuration form.
+ * The main edumeet configuration form.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,11 +29,11 @@ require_once($CFG->dirroot.'/course/moodleform_mod.php');
 /**
  * Module instance settings form.
  *
- * @package    multipartymeeting
+ * @package    edumeet
  * @copyright  2019 Mészáros Mihály <misi@majd.eu>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_multipartymeeting_mod_form extends moodleform_mod {
+class mod_edumeet_mod_form extends moodleform_mod {
 
     /**
      * Defines forms elements
@@ -47,7 +47,7 @@ class mod_multipartymeeting_mod_form extends moodleform_mod {
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
         // Adding the standard "name" field.
-        $mform->addElement('text', 'name', get_string('multipartymeetingname', 'multipartymeeting'), array('size' => '64'));
+        $mform->addElement('text', 'name', get_string('edumeetname', 'edumeet'), array('size' => '64'));
 
         if (!empty($CFG->formatstringstriptags)) {
             $mform->setType('name', PARAM_TEXT);
@@ -57,7 +57,7 @@ class mod_multipartymeeting_mod_form extends moodleform_mod {
 
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        $mform->addHelpButton('name', 'multipartymeetingname', 'multipartymeeting');
+        $mform->addHelpButton('name', 'edumeetname', 'edumeet');
 
         // Adding the standard "intro" and "introformat" fields.
         if ($CFG->branch >= 29) {
@@ -66,17 +66,17 @@ class mod_multipartymeeting_mod_form extends moodleform_mod {
             $this->add_intro_editor();
         }
 
-        // Adding the rest of multipartymeeting settings, spreading all them into this fieldset
+        // Adding the rest of edumeet settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
-        //$mform->addElement('static', 'label1', 'multipartymeetingsettings', get_string('multipartymeetingsettings', 'multipartymeeting'));
-        //$mform->addElement('header', 'multipartymeetingfieldset', get_string('multipartymeetingfieldset', 'multipartymeeting'));
+        //$mform->addElement('static', 'label1', 'edumeetsettings', get_string('edumeetsettings', 'edumeet'));
+        //$mform->addElement('header', 'edumeetfieldset', get_string('edumeetfieldset', 'edumeet'));
 
-        $mform->addElement('text', 'room', get_string('room', 'multipartymeeting'), array('size' => '64'));
-        $mform->setDefault('room', substr(base64_encode(sha1(mt_rand())), 0, get_config('multipartymeeting')->roomlength));
+        $mform->addElement('text', 'room', get_string('room', 'edumeet'), array('size' => '64'));
+        $mform->setDefault('room', substr(base64_encode(sha1(mt_rand())), 0, get_config('edumeet')->roomlength));
         $mform->setType('room', PARAM_TEXT);
-        $mform->addHelpButton('room', 'room', 'multipartymeeting');
+        $mform->addHelpButton('room', 'room', 'edumeet');
 
-        $mform->addElement('advcheckbox', 'pageredirect', get_string('pageredirect', 'multipartymeeting'));
+        $mform->addElement('advcheckbox', 'pageredirect', get_string('pageredirect', 'edumeet'));
         //$mform->setDefault('pageredirect', 1);
         $mform->setType('pageredirect', PARAM_BOOL);
 

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Prints an instance of multipartymeeting.
+ * Prints an instance of edumeet.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -32,46 +32,46 @@ $id = optional_param('id', 0, PARAM_INT);
 $k  = optional_param('k', 0, PARAM_INT);
 
 if ($id) {
-    $cm             = get_coursemodule_from_id('multipartymeeting', $id, 0, false, MUST_EXIST);
+    $cm             = get_coursemodule_from_id('edumeet', $id, 0, false, MUST_EXIST);
     $course         = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
-    $moduleinstance = $DB->get_record('multipartymeeting', array('id' => $cm->instance), '*', MUST_EXIST);
+    $moduleinstance = $DB->get_record('edumeet', array('id' => $cm->instance), '*', MUST_EXIST);
 } else if ($k) {
-    $moduleinstance = $DB->get_record('multipartymeeting', array('id' => $n), '*', MUST_EXIST);
+    $moduleinstance = $DB->get_record('edumeet', array('id' => $n), '*', MUST_EXIST);
     $course         = $DB->get_record('course', array('id' => $moduleinstance->course), '*', MUST_EXIST);
-    $cm             = get_coursemodule_from_instance('multipartymeeting', $moduleinstance->id, $course->id, false, MUST_EXIST);
+    $cm             = get_coursemodule_from_instance('edumeet', $moduleinstance->id, $course->id, false, MUST_EXIST);
 } else {
-    print_error(get_string('missingidandcmid', multipartymeeting));
+    print_error(get_string('missingidandcmid', edumeet));
 }
 
 require_login($course, true, $cm);
 
 $modulecontext = context_module::instance($cm->id);
-require_capability('mod/multipartymeeting:view', $modulecontext);
+require_capability('mod/edumeet:view', $modulecontext);
 
-$event = \mod_multipartymeeting\event\course_module_viewed::create(array(
+$event = \mod_edumeet\event\course_module_viewed::create(array(
     'objectid' => $moduleinstance->id,
     'context' => $modulecontext
 ));
 $event->add_record_snapshot('course', $course);
-$event->add_record_snapshot('multipartymeeting', $moduleinstance);
+$event->add_record_snapshot('edumeet', $moduleinstance);
 $event->trigger();
 
-$PAGE->set_url('/mod/multipartymeeting/view.php', array('id' => $cm->id));
+$PAGE->set_url('/mod/edumeet/view.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($moduleinstance->name));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($modulecontext);
 
 echo $OUTPUT->header();
-$url = get_config('multipartymeeting')->baseurl."/".$moduleinstance->room;
+$url = get_config('edumeet')->baseurl."/".$moduleinstance->room;
 
 if ($moduleinstance->pageredirect){
 	redirect($url);
 }
 
 ?>
-<div class="multipartymeeting_home">
+<div class="edumeet_home">
 	<div>
-		<a class="btn btn-lg btn-primary" target="_blank" href="<?php echo $url ?>"><i class="fa fa-users"></i> <?php echo get_string('join_room', 'multipartymeeting');?></a>
+		<a class="btn btn-lg btn-primary" target="_blank" href="<?php echo $url ?>"><i class="fa fa-users"></i> <?php echo get_string('join_room', 'edumeet');?></a>
 	<div>
 </div>
 
