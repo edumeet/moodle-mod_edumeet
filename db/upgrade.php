@@ -17,7 +17,7 @@
 /**
  * Plugin upgrade steps are defined here.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @category    upgrade
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,12 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__.'/upgradelib.php');
 
 /**
- * Execute multipartymeeting upgrade from the given old version.
+ * Execute edumeet upgrade from the given old version.
  *
  * @param int $oldversion
  * @return bool
  */
-function xmldb_multipartymeeting_upgrade($oldversion) {
+function xmldb_edumeet_upgrade($oldversion) {
     global $DB;
 
     $dbman = $DB->get_manager();

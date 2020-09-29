@@ -15,21 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The mod_multipartymeeting course module viewed event.
+ * The mod_edumeet course module viewed event.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_multipartymeeting\event;
+namespace mod_edumeet\event;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * The mod_multipartymeeting course module viewed event class.
+ * The mod_edumeet course module viewed event class.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -41,12 +41,12 @@ class course_module_viewed extends \core\event\course_module_viewed {
      * @return void
      */
     protected function init() {
-        $this->data['objecttable'] = 'multipartymeeting';
+        $this->data['objecttable'] = 'edumeet';
         $this->data['crud'] = 'r';
         $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
     }
 
     public static function get_objectid_mapping() {
-        return array('db' => 'multipartymeeting', 'restore' => 'multipartymeeting');
+        return array('db' => 'edumeet', 'restore' => 'edumeet');
     }
 }

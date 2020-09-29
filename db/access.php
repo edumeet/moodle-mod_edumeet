@@ -17,7 +17,7 @@
 /**
  * Code to be executed after the plugin's database scheme has been installed is defined here.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @category    upgrade
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,9 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-    'mod/multipartymeeting:addinstance' => array(
+    'mod/edumeet:addinstance' => array(
         'riskbitmask' => RISK_XSS,
-
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -38,4 +37,15 @@ $capabilities = array(
         ),
         'clonepermissionsfrom' => 'moodle/course:manageactivities'
     ),
+    'mod/edumeet:view' => array(
+	'riskbitmask' => RISK_PERSONAL,
+	'captype' => 'read',
+	'contextlevel' => CONTEXT_COURSE,
+	'archetypes' => array(
+    	    'student' => CAP_ALLOW,
+    	    'teacher' => CAP_ALLOW,
+    	    'editingteacher' => CAP_ALLOW,
+    	    'manager' => CAP_ALLOW
+	)
+    )
 );

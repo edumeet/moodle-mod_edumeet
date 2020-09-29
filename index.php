@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Display information about all the multipartymeeting modules in the requested course.
+ * Display information about all the edumeet modules in the requested course.
  *
- * @package     multipartymeeting
+ * @package     edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -34,25 +34,25 @@ $PAGE->set_pagelayout('incourse');
 $params = array(
     'context' => context_course::instance($course->id)
 );
-$event = \mod_multipartymeeting\event\course_module_instance_list_viewed::create($params);
+$event = \mod_edumeet\event\course_module_instance_list_viewed::create($params);
 $event->add_record_snapshot('course', $course);
 $event->trigger();
 
-$strmultipartymeeting       = get_string('modulename', 'multipartymeeting');
-$strmultipartymeetings      = get_string('modulenameplural', 'multipartymeeting');
+$stredumeet       = get_string('modulename', 'edumeet');
+$stredumeets      = get_string('modulenameplural', 'edumeet');
 $strname         = get_string('name');
 $strintro        = get_string('moduleintro');
 $strlastmodified = get_string('lastmodified');
 
-$PAGE->set_url('/mod/multipartymeeting/index.php', array('id' => $course->id));
-$PAGE->set_title($course->shortname.': '.$strmultipartymeetings);
+$PAGE->set_url('/mod/edumeet/index.php', array('id' => $course->id));
+$PAGE->set_title($course->shortname.': '.$stredumeets);
 $PAGE->set_heading($course->fullname);
-$PAGE->navbar->add($strmultipartymeetings);
+$PAGE->navbar->add($stredumeets);
 echo $OUTPUT->header();
-echo $OUTPUT->heading($strmultipartymeetings);
+echo $OUTPUT->heading($stredumeets);
 
-if (!$multipartymeetings = get_all_instances_in_course('multipartymeeting', $course)) {
-    notice(get_string('thereareno', 'moodle', $strmultipartymeetings), "$CFG->wwwroot/course/view.php?id=$course->id");
+if (!$edumeets = get_all_instances_in_course('edumeet', $course)) {
+    notice(get_string('thereareno', 'moodle', $stredumeets), "$CFG->wwwroot/course/view.php?id=$course->id");
     exit;
 }
 
@@ -74,35 +74,35 @@ $modinfo = get_fast_modinfo($course);
 $currentsection = '';
 
 
-foreach ($multipartymeetings as $multipartymeeting) {
-    $cm = $modinfo->cms[$multipartymeeting->coursemodule];
+foreach ($edumeets as $edumeet) {
+    $cm = $modinfo->cms[$edumeet->coursemodule];
     if ($usesections) {
         $printsection = '';
-        if ($multipartymeeting->section !== $currentsection) {
-            if ($multipartymeeting->section) {
-                $printsection = get_section_name($course, $multipartymeeting->section);
+        if ($edumeet->section !== $currentsection) {
+            if ($edumeet->section) {
+                $printsection = get_section_name($course, $edumeet->section);
             }
             if ($currentsection !== '') {
                 $table->data[] = 'hr';
             }
-            $currentsection = $multipartymeeting->section;
+            $currentsection = $edumeet->section;
         }
     } else {
-        $printsection = '<span class="smallinfo">'.userdate($multipartymeeting->timemodified)."</span>";
+        $printsection = '<span class="smallinfo">'.userdate($edumeet->timemodified)."</span>";
     }
 
     $extra = empty($cm->extra) ? '' : $cm->extra;
     $icon = '';
     if (!empty($cm->icon)) {
-        // each multipartymeeting has an icon in 2.0
+        // each edumeet has an icon in 2.0
         $icon = $OUTPUT->pix_icon($cm->icon, get_string('modulename', $cm->modname)) . ' ';
     }
 
-    $class = $multipartymeeting->visible ? '' : 'class="dimmed"'; // hidden modules are dimmed
+    $class = $edumeet->visible ? '' : 'class="dimmed"'; // hidden modules are dimmed
     $table->data[] = array (
         $printsection,
-        "<a $class $extra href=\"view.php?id=$cm->id\">".$icon.format_string($multipartymeeting->name)."</a>",
-        format_module_intro('multipartymeeting', $multipartymeeting, $cm->id));
+        "<a $class $extra href=\"view.php?id=$cm->id\">".$icon.format_string($edumeet->name)."</a>",
+        format_module_intro('edumeet', $edumeet, $cm->id));
 }
 
 echo html_writer::table($table);
