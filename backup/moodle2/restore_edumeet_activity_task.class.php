@@ -27,8 +27,19 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/edumeet/backup/moodle2/restore_edumeet_stepslib.php');
 
+/**
+ * Define the complete edumeet structure for restore, with file and id annotations.
+ *
+ * @package    mod_edumeet
+ * @category   backup
+ * @copyright  2020 Rémai Gábor.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class restore_edumeet_activity_task extends restore_activity_task {
 
+    /**
+     * Define custom stettings this activity can have
+     */
     protected function define_my_settings() {
         // No particular settings for this activity.
     }

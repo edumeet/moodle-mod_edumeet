@@ -58,6 +58,11 @@ class restore_edumeet_activity_structure_step extends restore_activity_structure
         $this->add_related_files('mod_edumeet', 'intro', null);
     }
 
+    /**
+     * Process the given restore path element data
+     *
+     * @param array $data parsed element data
+     */
     protected function process_edumeet($data) {
         global $DB;
         $data = (object)$data;

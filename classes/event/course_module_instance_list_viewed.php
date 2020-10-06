@@ -17,7 +17,7 @@
 /**
  * The mod_edumeet instance list viewed event.
  *
- * @package     edumeet
+ * @package     mod_edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * The mod_edumeet instance list viewed event class.
  *
- * @package     edumeet
+ * @package     mod_edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
