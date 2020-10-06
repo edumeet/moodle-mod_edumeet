@@ -43,11 +43,11 @@ function xmldb_edumeet_upgrade($oldversion) {
     }
     // For further information please read the Upgrade API documentation:
     // https://docs.moodle.org/dev/Upgrade_API
-    //
+
     // You will also have to create the db/install.xml file by using the XMLDB Editor.
     // Documentation for the XMLDB Editor can be found at:
     // https://docs.moodle.org/dev/XMLDB_editor
-    //
+
 
     return true;
 }
