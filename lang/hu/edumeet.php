@@ -42,3 +42,4 @@ $string['edumeetroomlength'] = 'Edumeet Szoba azonosító hossza:';
 $string['edumeetroomlength_desc'] = 'Véletlenszerűen generált karakterek hossza a szobanévhez';
 $string['join_room'] = 'Csatlakozás a szobához';
 $string['pageredirect'] = 'Csatlakozás átírányítással';
+$string['privacy:metadata'] = 'Ez a modul csak már létező szoba linket tárol.';

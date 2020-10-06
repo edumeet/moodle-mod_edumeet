@@ -42,3 +42,4 @@ $string['edumeetroomlength'] = 'Edumeet Room ID length:';
 $string['edumeetroomlength_desc'] = 'Length of random ID that will be generated for a Room';
 $string['join_room'] = 'Join to the Meeting';
 $string['pageredirect'] = 'Join Meeting by page redirect';
+$string['privacy:metadata'] = 'The Module only displays existing edumeet room links.';
