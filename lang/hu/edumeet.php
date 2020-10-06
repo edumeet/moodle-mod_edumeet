@@ -43,3 +43,5 @@ $string['edumeetroomlength_desc'] = 'Véletlenszerűen generált karakterek hoss
 $string['join_room'] = 'Csatlakozás a szobához';
 $string['pageredirect'] = 'Csatlakozás átírányítással';
 $string['privacy:metadata'] = 'Ez a modul csak már létező szoba linket tárol.';
+$string['edumeet:addinstance'] = 'Új edumeet példányosítás.';
+

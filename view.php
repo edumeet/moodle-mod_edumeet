@@ -64,15 +64,15 @@ $PAGE->set_context($modulecontext);
 echo $OUTPUT->header();
 $url = get_config('edumeet')->baseurl."/".$moduleinstance->room;
 
-if ($moduleinstance->pageredirect){
-	redirect($url);
+if ($moduleinstance->pageredirect) {
+    redirect($url);
 }
 
 ?>
 <div class="edumeet_home">
 	<div>
 		<a class="btn btn-lg btn-primary" target="_blank" href="<?php echo $url ?>"><i class="fa fa-users"></i> <?php echo get_string('join_room', 'edumeet');?></a>
-	<div>
+    <div>
 </div>
 
 <?php

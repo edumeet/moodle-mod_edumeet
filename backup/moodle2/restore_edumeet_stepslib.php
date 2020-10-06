@@ -59,16 +59,14 @@ class restore_edumeet_activity_structure_step extends restore_activity_structure
     }
 
     protected function process_edumeet($data) {
-	 global $DB;
- 
+        global $DB;
         $data = (object)$data;
         // $oldid = $data->id;
         $data->course = $this->get_courseid();
-         // insert the choice record
+        // insert the choice record
         $newitemid = $DB->insert_record('edumeet', $data);
         // immediately after inserting "activity" record, call this
         $this->apply_activity_instance($newitemid);
     }
 
- 
 }

@@ -53,12 +53,8 @@ class restore_edumeet_activity_task extends restore_activity_task {
 
         return $contents;
     }
-    
+
     /**
-     * Define the decoding rules for links belonging
-     * to the activity to be executed by the link decoder
-     */
-        /**
      * Define the decoding rules for links belonging
      * to the activity to be executed by the link decoder
      */

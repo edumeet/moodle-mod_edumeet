@@ -38,14 +38,14 @@ $capabilities = array(
         'clonepermissionsfrom' => 'moodle/course:manageactivities'
     ),
     'mod/edumeet:view' => array(
-	'riskbitmask' => RISK_PERSONAL,
-	'captype' => 'read',
-	'contextlevel' => CONTEXT_COURSE,
-	'archetypes' => array(
-    	    'student' => CAP_ALLOW,
-    	    'teacher' => CAP_ALLOW,
-    	    'editingteacher' => CAP_ALLOW,
-    	    'manager' => CAP_ALLOW
-	)
+    'riskbitmask' => RISK_PERSONAL,
+    'captype' => 'read',
+    'contextlevel' => CONTEXT_COURSE,
+    'archetypes' => array(
+        'student' => CAP_ALLOW,
+        'teacher' => CAP_ALLOW,
+        'editingteacher' => CAP_ALLOW,
+        'manager' => CAP_ALLOW
+        )
     )
 );
