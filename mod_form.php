@@ -33,7 +33,8 @@ require_once($CFG->dirroot . '/course/moodleform_mod.php');
  * @copyright  2019 Mészáros Mihály <misi@majd.eu>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_edumeet_mod_form extends moodleform_mod{
+class mod_edumeet_mod_form extends moodleform_mod
+{
 
     /**
      * Defines forms elements

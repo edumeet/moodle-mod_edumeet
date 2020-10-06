@@ -70,8 +70,8 @@ if ($moduleinstance->pageredirect) {
 
 ?>
 <div class="edumeet_home">
-	<div>
-		<a class="btn btn-lg btn-primary" target="_blank" href="<?php echo $url ?>"><i class="fa fa-users"></i> <?php echo get_string('join_room', 'edumeet');?></a>
+    <div>
+        <a class="btn btn-lg btn-primary" target="_blank" href="<?php echo $url ?>"><i class="fa fa-users"></i> <?php echo get_string('join_room', 'edumeet');?></a>
     <div>
 </div>
 

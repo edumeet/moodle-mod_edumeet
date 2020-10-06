@@ -26,18 +26,18 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-   // TODO: Define the plugin settings page.
-   // https://docs.moodle.org/dev/Admin_settings
-   $settings->add(new admin_setting_configtext(
+    // TODO: Define the plugin settings page.
+    // https://docs.moodle.org/dev/Admin_settings
+    $settings->add(new admin_setting_configtext(
       'edumeet/baseurl',
       get_string('edumeetbaseurl', 'edumeet'),
       get_string('edumeetbaseurl_desc', 'edumeet'),
       'https://letsmeet.no'
-   ));
-   $settings->add(new admin_setting_configtext(
+    ));
+    $settings->add(new admin_setting_configtext(
       'edumeet/roomlength',
       get_string('edumeetroomlength', 'edumeet'),
       get_string('edumeetroomlength_desc', 'edumeet'),
       8
-   ));
+    ));
 }

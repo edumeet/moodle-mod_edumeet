@@ -84,5 +84,4 @@ class restore_edumeet_activity_task extends restore_activity_task {
         return $rules;
     }
 
-    
 }
