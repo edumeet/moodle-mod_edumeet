@@ -17,7 +17,7 @@
 /**
  * Plugin strings are defined here.
  *
- * @package     edumeet
+ * @package     mod_edumeet
  * @category    string
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

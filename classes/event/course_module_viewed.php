@@ -17,7 +17,7 @@
 /**
  * The mod_edumeet course module viewed event.
  *
- * @package     edumeet
+ * @package     mod_edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * The mod_edumeet course module viewed event class.
  *
- * @package     edumeet
+ * @package     mod_edumeet
  * @copyright   2019 Mészáros Mihály <misi@majd.eu>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -45,7 +45,9 @@ class course_module_viewed extends \core\event\course_module_viewed {
         $this->data['crud'] = 'r';
         $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
     }
-
+    /**
+     * When we perform a restore of an event we may need to map the 'objectid' and 'other' information in order to restore the event accurately.
+     */ 
     public static function get_objectid_mapping() {
         return array('db' => 'edumeet', 'restore' => 'edumeet');
     }
