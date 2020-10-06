@@ -24,7 +24,7 @@
 
 require('../../config.php');
 
-$id = required_param('id', PARAM_INT); // course id
+$id = required_param('id', PARAM_INT);
 
 $course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
 
@@ -94,11 +94,11 @@ foreach ($edumeets as $edumeet) {
     $extra = empty($cm->extra) ? '' : $cm->extra;
     $icon = '';
     if (!empty($cm->icon)) {
-        // each edumeet has an icon in 2.0
+        // Each edumeet has an icon in 2.0.
         $icon = $OUTPUT->pix_icon($cm->icon, get_string('modulename', $cm->modname)) . ' ';
     }
 
-    $class = $edumeet->visible ? '' : 'class="dimmed"'; // hidden modules are dimmed
+    $class = $edumeet->visible ? '' : 'class="dimmed"'; // Hidden modules are dimmed.
     $table->data[] = array (
         $printsection,
         "<a $class $extra href=\"view.php?id=$cm->id\">".$icon.format_string($edumeet->name)."</a>",

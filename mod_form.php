@@ -67,18 +67,12 @@ class mod_edumeet_mod_form extends moodleform_mod
             $this->add_intro_editor();
         }
 
-        // Adding the rest of edumeet settings, spreading all them into this fieldset
-        // ... or adding more fieldsets ('header' elements) if needed for better logic.
-        // $mform->addElement('static', 'label1', 'edumeetsettings', get_string('edumeetsettings', 'edumeet'));
-        // $mform->addElement('header', 'edumeetfieldset', get_string('edumeetfieldset', 'edumeet'));
-
         $mform->addElement('text', 'room', get_string('room', 'edumeet'), array('size' => '64'));
         $mform->setDefault('room', substr(base64_encode(sha1(mt_rand())), 0, get_config('edumeet')->roomlength));
         $mform->setType('room', PARAM_TEXT);
         $mform->addHelpButton('room', 'room', 'edumeet');
 
         $mform->addElement('advcheckbox', 'pageredirect', get_string('pageredirect', 'edumeet'));
-        // $mform->setDefault('pageredirect', 1);
         $mform->setType('pageredirect', PARAM_BOOL);
 
         // Add standard elements.

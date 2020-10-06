@@ -52,7 +52,7 @@ function edumeet_supports($feature) {
  * @param mod_edumeet_mod_form $mform The form.
  * @return int The id of the newly inserted record.
  */
-function edumeet_add_instance($moduleinstance, $mform = null) {
+function edumeet_add_instance($moduleinstance, $mform) {
     global $DB;
 
     $moduleinstance->timecreated = time();
@@ -72,12 +72,11 @@ function edumeet_add_instance($moduleinstance, $mform = null) {
  * @param mod_edumeet_mod_form $mform The form.
  * @return bool True if successful, false otherwise.
  */
-function edumeet_update_instance($moduleinstance, $mform = null) {
+function edumeet_update_instance($moduleinstance, $mform) {
     global $DB;
 
     $moduleinstance->timemodified = time();
     $moduleinstance->id = $moduleinstance->instance;
-
     return $DB->update_record('edumeet', $moduleinstance);
 }
 

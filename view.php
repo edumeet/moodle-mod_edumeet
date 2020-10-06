@@ -25,10 +25,8 @@
 require(__DIR__.'/../../config.php');
 require_once(__DIR__.'/lib.php');
 
-// Course_module ID, or
+// Course_module ID, or module instance id.
 $id = optional_param('id', 0, PARAM_INT);
-
-// ... module instance id.
 $k  = optional_param('k', 0, PARAM_INT);
 
 if ($id) {
@@ -71,7 +69,9 @@ if ($moduleinstance->pageredirect) {
 ?>
 <div class="edumeet_home">
     <div>
-        <a class="btn btn-lg btn-primary" target="_blank" href="<?php echo $url ?>"><i class="fa fa-users"></i> <?php echo get_string('join_room', 'edumeet');?></a>
+        <a class="btn btn-lg btn-primary" target="_blank" href="<?php echo $url ?>">
+            <i class="fa fa-users"></i> <?php echo get_string('join_room', 'edumeet');?>
+        </a>
     <div>
 </div>
 

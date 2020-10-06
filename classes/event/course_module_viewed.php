@@ -46,7 +46,7 @@ class course_module_viewed extends \core\event\course_module_viewed {
         $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
     }
     /**
-     * When we perform a restore of an event we may need to map the 'objectid' and 'other' information in order to restore the event accurately.
+     * When we perform a restore of an event we may need to map the 'objectid'.
      */
     public static function get_objectid_mapping() {
         return array('db' => 'edumeet', 'restore' => 'edumeet');
