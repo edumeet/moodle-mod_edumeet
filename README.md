@@ -1,4 +1,4 @@
-# eduMeet WebRTC #
+# eduMeet WebRTC # [![Build Status](https://travis-ci.org/edumeet/moodle-mod_edumeet.svg?branch=master)](https://travis-ci.org/edumeet/moodle-mod_edumeet)
 
 eduMeet WebRTC Moodle Plugin
 
