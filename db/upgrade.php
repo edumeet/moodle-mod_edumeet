@@ -32,7 +32,7 @@ require_once(__DIR__.'/upgradelib.php');
  *
  * @param int $oldversion
  * @return bool
- * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
  */
 function xmldb_edumeet_upgrade($oldversion) {
     global $DB;
