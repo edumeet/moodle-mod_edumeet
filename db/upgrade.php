@@ -32,15 +32,12 @@ require_once(__DIR__.'/upgradelib.php');
  *
  * @param int $oldversion
  * @return bool
+ * @SuppressWarnings(PHPMD.UnusedLocalVariable)
  */
 function xmldb_edumeet_upgrade($oldversion) {
     global $DB;
 
     $dbman = $DB->get_manager();
-    if ($oldversion == "1.0.1") {
-        // Do nothing.
-        return true;
-    }
     // For further information please read the Upgrade API documentation:
     // https://docs.moodle.org/dev/Upgrade_API
     //

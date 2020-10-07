@@ -51,6 +51,7 @@ function edumeet_supports($feature) {
  * @param object $moduleinstance An object from the form.
  * @param mod_edumeet_mod_form $mform The form.
  * @return int The id of the newly inserted record.
+ * @SuppressWarnings(PHPMD.UnusedLocalVariable)
  */
 function edumeet_add_instance($moduleinstance, $mform) {
     global $DB;
@@ -71,6 +72,7 @@ function edumeet_add_instance($moduleinstance, $mform) {
  * @param object $moduleinstance An object from the form in mod_form.php.
  * @param mod_edumeet_mod_form $mform The form.
  * @return bool True if successful, false otherwise.
+ * @SuppressWarnings(PHPMD.UnusedLocalVariable)
  */
 function edumeet_update_instance($moduleinstance, $mform) {
     global $DB;
