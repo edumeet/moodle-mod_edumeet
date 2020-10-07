@@ -35,4 +35,6 @@ function multipartymeeting_helper_function() {
     // For more information please read the available Moodle documentation:
     // https://docs.moodle.org/dev/Upgrade_API
     //
+    // Just For correct linting.
+
 }

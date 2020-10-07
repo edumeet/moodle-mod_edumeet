@@ -48,6 +48,7 @@ function xmldb_edumeet_upgrade($oldversion) {
     // Documentation for the XMLDB Editor can be found at:
     // https://docs.moodle.org/dev/XMLDB_editor
     //
+    // Just For correct linting.
 
     return true;
 }
